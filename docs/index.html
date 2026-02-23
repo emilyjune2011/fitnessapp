@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App | Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell auth-shell">
+      <header class="hero card">
+        <p class="eyebrow">Fitness App</p>
+        <h1>Welcome back</h1>
+        <p>Log in as a trainer or user.</p>
+      </header>
+
+      <section class="card auth-card" aria-labelledby="trainer-login-heading">
+        <h2 id="trainer-login-heading">Trainer Login</h2>
+        <p class="section-copy">Trainers can manage users, edit profiles, and build workouts.</p>
+        <button id="trainer-login" class="btn btn-primary" type="button">Continue as Trainer</button>
+      </section>
+
+      <section class="card auth-card" aria-labelledby="user-login-heading">
+        <h2 id="user-login-heading">User Login</h2>
+        <p class="section-copy">Users can only view their own profile and trainer updates.</p>
+        <form id="user-login-form" class="profile-form" novalidate>
+          <label>Email
+            <input name="email" type="email" autocomplete="email" required aria-required="true" />
+          </label>
+          <label>Access Password
+            <input name="password" type="password" required aria-required="true" />
+          </label>
+          <button class="btn btn-secondary" type="submit">Log In as User</button>
+        </form>
+        <p class="inline-alert" id="login-message" aria-live="polite" hidden></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "fitnessapp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/publish-pages.mjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "svelte": "^4.2.18",
+    "vite": "^5.4.10"
+  }
+}
