@@ -10,54 +10,25 @@
     <main class="app-shell auth-shell">
       <header class="hero card">
         <p class="eyebrow">Fitness App</p>
-        <h1>Welcome back</h1>
-        <p>Log in as a trainer or user.</p>
+        <h1>Log In</h1>
+        <p>Access your dashboard to view stats and log workouts.</p>
       </header>
 
-      <section class="card auth-card" aria-labelledby="trainer-login-heading">
-        <h2 id="trainer-login-heading">Trainer Login</h2>
-        <p class="section-copy">Trainers can manage users, edit profiles, and build workouts.</p>
-        <button id="trainer-login" class="btn btn-primary" type="button">Continue as Trainer</button>
-      </section>
-
-      <section class="card auth-card" aria-labelledby="user-login-heading">
-        <h2 id="user-login-heading">User Login</h2>
-        <p class="section-copy">Users can only view their own profile and trainer updates.</p>
-        <form id="user-login-form" class="profile-form" novalidate>
+      <section class="card auth-card" aria-labelledby="login-heading">
+        <h2 id="login-heading">Welcome Back</h2>
+        <form id="simple-login-form" class="profile-form" novalidate>
           <label>Email
             <input name="email" type="email" autocomplete="email" required aria-required="true" />
           </label>
-          <label>Access Password
+          <label>Password
             <input name="password" type="password" required aria-required="true" />
           </label>
-          <button class="btn btn-secondary" type="submit">Log In as User</button>
+          <button class="btn btn-primary" type="submit">Log In</button>
         </form>
         <p class="inline-alert" id="login-message" aria-live="polite" hidden></p>
       </section>
     </main>
 
     <script src="app.js"></script>
-    <title>Fitness App | Home</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="app-shell">
-      <header class="hero hero-card">
-        <p class="eyebrow">Trainer Dashboard</p>
-        <h1>Fitness Progress Tracker</h1>
-        <p class="hero-copy">Quickly jump into client management or build today’s workout plan.</p>
-      </header>
-
-      <nav class="home-nav" aria-label="Main navigation">
-        <a class="card nav-tile" href="users.html">
-          <span class="tile-title">Users</span>
-          <span class="tile-sub">Manage client profiles and progress</span>
-        </a>
-        <a class="card nav-tile" href="build-workout.html">
-          <span class="tile-title">Build a Workout</span>
-          <span class="tile-sub">Create exercise sets, reps, and timing</span>
-        </a>
-      </nav>
-    </main>
   </body>
 </html>

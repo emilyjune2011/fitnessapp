@@ -2,12 +2,7 @@ import { copyFile, mkdir } from 'node:fs/promises';
 
 const files = [
   'index.html',
-  'users.html',
-  'new-user.html',
-  'profile.html',
-  'signup.html',
-  'trainer-home.html',
-  'user-dashboard.html',
+  'dashboard.html',
   'app.js',
   'styles.css'
 ];
