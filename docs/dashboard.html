@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App | Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero card">
+        <p class="eyebrow">Dashboard</p>
+        <h1>Your Current Stats</h1>
+        <p>Stats cards are placeholders for now and will be updated later.</p>
+      </header>
+
+      <section class="card" aria-label="Current stats placeholder">
+        <dl class="profile-detail-grid">
+          <dt>Workouts this week</dt><dd>--</dd>
+          <dt>Consistency streak</dt><dd>--</dd>
+          <dt>Total training time</dt><dd>--</dd>
+          <dt>Latest PR</dt><dd>--</dd>
+        </dl>
+      </section>
+
+      <section class="card workout-menu" aria-label="Log workout actions">
+        <h2>Log a Workout</h2>
+        <button type="button" class="btn btn-primary" id="log-workout-trigger">Log a Workout</button>
+
+        <div id="workout-options" class="workout-menu-actions" hidden>
+          <a class="btn btn-secondary" href="build-workout.html">Build a Workout</a>
+          <button class="btn btn-secondary" type="button" id="log-saved-workout">Log a Saved Workout</button>
+        </div>
+
+        <p class="inline-alert" id="saved-workout-message" aria-live="polite" hidden>
+          Saved workout logging will be added soon.
+        </p>
+      </section>
+
+      <button class="btn btn-ghost" id="logout-btn" type="button">Log out</button>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
