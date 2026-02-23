@@ -10,7 +10,7 @@
     <main class="app-shell">
       <header class="hero card">
         <h1 id="profile-name">User Profile</h1>
-        <p id="profile-subtitle">Trainer view</p>
+        <p id="profile-subtitle">Basic details and training timeline.</p>
       </header>
 
       <section class="card profile-card" id="profile-card" hidden>
@@ -19,24 +19,18 @@
           <dl class="profile-detail-grid" id="profile-detail-grid"></dl>
         </details>
 
-        <section class="workout-menu" aria-label="Log workout options">
+        <div class="workout-menu" aria-label="Log workout options">
           <h2>Log Workout</h2>
           <div class="workout-menu-actions">
-            <a class="btn btn-primary" id="build-workout-link" href="build-workout.html">Build a Workout</a>
-            <button type="button" class="btn btn-secondary" id="log-saved-workout">Log a Saved Workout</button>
+            <a class="primary-action" id="build-workout-link" href="build-workout.html">Build a Workout</a>
+            <button type="button" class="ghost-action" id="log-saved-workout">Log a Saved Workout</button>
           </div>
-          <p class="inline-alert" id="saved-workout-message" hidden>Saved workout logging will be added soon.</p>
-        </section>
-
-        <section class="workout-menu" aria-label="User access link">
-          <h2>User Access</h2>
-          <button type="button" class="btn btn-secondary" id="generate-user-link">Generate User Signup Link</button>
-          <p class="inline-alert inline-alert--success" id="invite-message" aria-live="polite" hidden></p>
-        </section>
+          <p class="flash-message" id="saved-workout-message" hidden>Saved workout logging will be added soon.</p>
+        </div>
       </section>
 
-      <p id="missing-profile" class="inline-alert" hidden>Could not find this profile.</p>
-      <a class="btn btn-ghost" href="users.html">← Back to Users</a>
+      <p id="missing-profile" class="flash-message" hidden>Could not find this profile.</p>
+      <a class="secondary-link" href="users.html">Back to Users</a>
     </main>
 
     <script src="app.js"></script>
