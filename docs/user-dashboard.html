@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App | My Profile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero card">
+        <p class="eyebrow">User Portal</p>
+        <h1 id="user-dashboard-name">My Profile</h1>
+        <p>View what your trainer has added.</p>
+      </header>
+
+      <section class="card profile-card" id="user-dashboard-card" hidden>
+        <dl class="profile-detail-grid" id="user-dashboard-grid"></dl>
+      </section>
+
+      <p id="user-dashboard-missing" class="inline-alert" hidden>Unable to load your profile.</p>
+      <button class="btn btn-ghost" id="logout-btn" type="button">Log out</button>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
