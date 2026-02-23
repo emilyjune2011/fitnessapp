@@ -1,19 +1,16 @@
 :root {
-  --bg: #f5f7fb;
-  --bg-soft: #eef3ff;
+  --bg: #f3f6fb;
+  --bg-accent: #e9eef8;
   --surface: #ffffff;
-  --surface-alt: #f8faff;
+  --surface-muted: #f8faff;
   --text: #0f172a;
-  --text-muted: #56627a;
-  --primary: #3b82f6;
-  --primary-strong: #2563eb;
-  --accent: #8b5cf6;
-  --ring: rgba(59, 130, 246, 0.28);
-  --border: #d7e3fb;
-  --danger: #ef4444;
+  --text-muted: #475569;
+  --primary: #2563eb;
+  --primary-strong: #1d4ed8;
+  --ring: rgba(37, 99, 235, 0.25);
+  --border: #dbe5f4;
+  --danger: #e11d48;
   --success: #16a34a;
-  --shadow-lg: 0 16px 42px rgba(15, 23, 42, 0.11);
-  --shadow-sm: 0 8px 22px rgba(15, 23, 42, 0.07);
 }
 
 * {
@@ -26,35 +23,26 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   min-height: 100vh;
   background:
-    radial-gradient(700px 340px at 8% -10%, #dbeafe 0%, transparent 62%),
-    radial-gradient(780px 360px at 100% 0%, #ede9fe 0%, transparent 56%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    radial-gradient(900px 380px at 10% -5%, #dbeafe 0%, transparent 60%),
+    radial-gradient(900px 360px at 95% 0%, #e0e7ff 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-accent) 100%);
 }
 
 .app-shell {
   width: min(100%, 760px);
   margin: 0 auto;
-  padding: 1rem 0.9rem 2.2rem;
+  padding: 1rem 0.9rem 2rem;
   display: grid;
   gap: 0.9rem;
 }
 
 .card,
 .hero-card {
-  background: color-mix(in oklab, var(--surface) 94%, #fff 6%);
+  background: color-mix(in oklab, var(--surface) 92%, #ffffff 8%);
   border: 1px solid var(--border);
   border-radius: 1.1rem;
   padding: 1rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.hero {
-  display: grid;
-  gap: 0.25rem;
-}
-
-.users-hero {
-  gap: 0.2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 .eyebrow {
@@ -63,47 +51,46 @@ body {
   letter-spacing: 0.08em;
   font-size: 0.72rem;
   color: var(--primary);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .hero h1 {
-  margin: 0;
-  font-size: clamp(1.7rem, 6vw, 2.25rem);
-  line-height: 1.08;
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  line-height: 1.1;
 }
 
 .hero p,
 .hero-copy {
-  margin: 0;
+  margin: 0.45rem 0 0;
   color: var(--text-muted);
 }
 
 .home-nav {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .nav-tile {
   display: grid;
-  gap: 0.32rem;
+  gap: 0.3rem;
   text-decoration: none;
   color: var(--text);
-  border-radius: 1.1rem;
-  transition: transform 140ms ease, box-shadow 140ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
 .nav-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.12);
 }
 
 .tile-title {
   font-weight: 800;
-  font-size: 1.12rem;
+  font-size: 1.1rem;
 }
 
 .tile-sub {
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
 }
 
@@ -111,22 +98,21 @@ body {
 .ghost-action,
 .new-user-row,
 .remove-row-btn {
-  min-height: 46px;
-  border-radius: 0.88rem;
+  min-height: 44px;
+  border-radius: 0.8rem;
   border: 1px solid transparent;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 130ms ease, filter 130ms ease;
+  transition: filter 120ms ease, transform 120ms ease;
 }
 
 .primary-action,
 .new-user-row {
   background: linear-gradient(180deg, var(--primary), var(--primary-strong));
   color: #fff;
-  padding: 0.74rem 1rem;
-  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.2);
+  padding: 0.72rem 1rem;
 }
 
 .primary-action:hover,
@@ -138,10 +124,10 @@ body {
 }
 
 .ghost-action {
-  background: var(--surface-alt);
+  background: var(--surface-muted);
   border-color: var(--border);
   color: var(--text);
-  padding: 0.74rem 1rem;
+  padding: 0.72rem 1rem;
 }
 
 .new-user-row {
@@ -152,7 +138,7 @@ body {
 .secondary-link {
   text-decoration: none;
   color: var(--text-muted);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .flash-message {
@@ -166,30 +152,17 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 
 .user-item {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.user-link {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.95rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.user-link:hover {
-  background: var(--surface-alt);
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 0.82rem;
+  background: var(--surface);
 }
 
 .user-item h3 {
@@ -198,34 +171,22 @@ body {
 }
 
 .user-item p {
-  margin: 0.26rem 0 0;
+  margin: 0.2rem 0 0;
   color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .profile-meta {
-  font-size: 0.82rem;
-}
-
-.user-status-row {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  font-size: 0.8rem;
 }
 
 .status {
   border-radius: 999px;
-  padding: 0.24rem 0.52rem;
+  padding: 0.2rem 0.5rem;
   font-size: 0.78rem;
-  color: #155e75;
-  border: 1px solid #bae6fd;
-  background: #e0f2fe;
-}
-
-.user-arrow {
-  color: var(--text-muted);
-  font-size: 1.12rem;
-  line-height: 1;
+  color: #14532d;
+  border: 1px solid #bbf7d0;
+  background: #dcfce7;
 }
 
 .users-header {
@@ -241,13 +202,12 @@ body {
 
 .profile-form,
 .metrics-grid,
+.exercise-fields,
 .exercise-rows,
 .workout-form,
-.builder-actions,
-.assignment-panel,
-.workout-menu-actions {
+.builder-actions {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.72rem;
 }
 
 .builder-actions {
@@ -255,10 +215,9 @@ body {
 }
 
 .profile-form label,
-.exercise-row label,
-.assignment-panel label {
+.exercise-row label {
   display: grid;
-  gap: 0.36rem;
+  gap: 0.34rem;
   font-size: 0.9rem;
   color: var(--text-muted);
 }
@@ -266,23 +225,21 @@ body {
 .profile-form input,
 .profile-form textarea,
 .exercise-row input,
-.exercise-row select,
-.assignment-panel select {
+.exercise-row select {
   width: 100%;
-  min-height: 46px;
-  border-radius: 0.76rem;
+  min-height: 44px;
+  border-radius: 0.7rem;
   border: 1px solid var(--border);
   background: #fff;
   color: var(--text);
-  padding: 0.66rem;
+  padding: 0.62rem;
   font: inherit;
 }
 
 .profile-form input:focus,
 .profile-form textarea:focus,
 .exercise-row input:focus,
-.exercise-row select:focus,
-.assignment-panel select:focus {
+.exercise-row select:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 4px var(--ring);
@@ -293,14 +250,13 @@ body {
   grid-column: 1 / -1;
 }
 
-.exercise-row,
-.assignment-panel,
-.workout-menu,
-.profile-details {
+.exercise-row {
   border: 1px solid var(--border);
-  border-radius: 0.96rem;
-  padding: 0.88rem;
-  background: var(--surface-alt);
+  border-radius: 0.95rem;
+  padding: 0.85rem;
+  background: var(--surface);
+  display: grid;
+  gap: 0.7rem;
 }
 
 .row-header {
@@ -310,9 +266,7 @@ body {
   gap: 0.6rem;
 }
 
-.row-header h2,
-.assignment-panel h2,
-.workout-menu h2 {
+.row-header h2 {
   margin: 0;
   font-size: 1rem;
 }
@@ -321,7 +275,7 @@ body {
   border: 1px dashed var(--border);
   border-radius: 0.82rem;
   padding: 0.72rem;
-  background: #fff;
+  background: var(--surface-muted);
 }
 
 .remove-row-btn {
@@ -329,36 +283,6 @@ body {
   border-color: #fecdd3;
   color: var(--danger);
   padding: 0.4rem 0.68rem;
-}
-
-.profile-details summary {
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.profile-detail-grid {
-  margin: 0.72rem 0 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.25rem 0.75rem;
-}
-
-.profile-detail-grid dt {
-  color: var(--text-muted);
-  font-size: 0.84rem;
-}
-
-.profile-detail-grid dd {
-  margin: 0 0 0.62rem;
-  font-weight: 600;
-}
-
-.workout-menu {
-  margin-top: 0.8rem;
-}
-
-[hidden] {
-  display: none !important;
 }
 
 @media (min-width: 700px) {
@@ -371,10 +295,6 @@ body {
   }
 
   .profile-form {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .profile-detail-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

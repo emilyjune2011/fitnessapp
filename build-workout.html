@@ -8,26 +8,11 @@
   </head>
   <body>
     <main class="app-shell">
-      <header class="hero card">
+      <header class="hero">
         <h1>Build a Workout</h1>
       </header>
 
       <form id="workout-form" class="card workout-form" novalidate>
-        <section class="assignment-panel" aria-labelledby="assignment-heading">
-          <h2 id="assignment-heading">Assign Workout</h2>
-          <label>
-            Save mode
-            <select id="assignment-mode" name="assignmentMode">
-              <option value="template">Save as template only</option>
-              <option value="user">Assign to a user</option>
-            </select>
-          </label>
-          <label id="assigned-user-wrap" hidden>
-            Select user
-            <select id="assigned-user" name="assignedUser"></select>
-          </label>
-        </section>
-
         <div class="builder-actions">
           <button type="button" id="add-exercise" class="primary-action">Add Exercise</button>
           <button type="button" id="add-rest" class="ghost-action">Add Rest</button>
