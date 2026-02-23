@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App | User Profile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero card">
+        <h1 id="profile-name">User Profile</h1>
+        <p id="profile-subtitle">Basic details and training timeline.</p>
+      </header>
+
+      <section class="card profile-card" id="profile-card" hidden>
+        <details class="profile-details" open>
+          <summary>Client Profile Details</summary>
+          <dl class="profile-detail-grid" id="profile-detail-grid"></dl>
+        </details>
+
+        <div class="workout-menu" aria-label="Log workout options">
+          <h2>Log Workout</h2>
+          <div class="workout-menu-actions">
+            <a class="primary-action" id="build-workout-link" href="build-workout.html">Build a Workout</a>
+            <button type="button" class="ghost-action" id="log-saved-workout">Log a Saved Workout</button>
+          </div>
+          <p class="flash-message" id="saved-workout-message" hidden>Saved workout logging will be added soon.</p>
+        </div>
+      </section>
+
+      <p id="missing-profile" class="flash-message" hidden>Could not find this profile.</p>
+      <a class="secondary-link" href="users.html">Back to Users</a>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
