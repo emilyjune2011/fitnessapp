@@ -10,6 +10,11 @@ export default defineConfig({
     rollupOptions: {
       input: {
         'build-workout': 'build-workout.html'
+      },
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]'
       }
     }
   }
