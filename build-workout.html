@@ -8,5 +8,87 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/build-workout/main.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <h1>Build a Workout</h1>
+      </header>
+
+      <form id="workout-form" class="card workout-form" novalidate>
+        <div class="builder-actions">
+          <button type="button" id="add-exercise" class="primary-action">Add Exercise</button>
+          <button type="button" id="add-rest" class="ghost-action">Add Rest</button>
+        </div>
+
+        <div id="exercise-rows" class="exercise-rows"></div>
+
+        <button type="submit" class="primary-action">Save Workout</button>
+        <p class="flash-message" id="workout-message" hidden>Workout saved in this session.</p>
+      </form>
+
+      <a class="secondary-link" href="index.html">Back to Home</a>
+    </main>
+
+    <template id="exercise-row-template">
+      <section class="exercise-row" data-type="exercise" data-step="equipment">
+        <div class="row-header">
+          <h2>Exercise</h2>
+          <button type="button" class="remove-row-btn" aria-label="Remove this block">Remove</button>
+        </div>
+
+        <div class="step-card" data-step-panel="equipment">
+          <label>
+            Equipment
+            <select name="equipment" class="equipment-select" required></select>
+          </label>
+        </div>
+
+        <div class="step-card" data-step-panel="exercise" hidden>
+          <label>
+            Exercise
+            <select name="exercise" class="exercise-select" required></select>
+          </label>
+        </div>
+
+        <div class="step-card metrics-grid" data-step-panel="metrics" hidden>
+          <label>
+            Sets *
+            <input name="sets" type="number" min="1" required />
+          </label>
+          <label>
+            Reps
+            <input name="reps" type="number" min="1" />
+          </label>
+          <label>
+            Time (seconds)
+            <input name="time" type="number" min="1" />
+          </label>
+        </div>
+      </section>
+    </template>
+
+    <template id="rest-row-template">
+      <section class="exercise-row" data-type="rest" data-step="metrics">
+        <div class="row-header">
+          <h2>Rest</h2>
+          <button type="button" class="remove-row-btn" aria-label="Remove this block">Remove</button>
+        </div>
+
+        <div class="step-card metrics-grid" data-step-panel="metrics">
+          <label>
+            Sets *
+            <input name="sets" type="number" min="1" required />
+          </label>
+          <label>
+            Time (seconds) *
+            <input name="time" type="number" min="1" required />
+          </label>
+        </div>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
   </body>
 </html>
