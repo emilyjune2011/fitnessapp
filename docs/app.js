@@ -8,12 +8,6 @@ const defaultProfiles = [
   { firstName: "Priya", lastName: "Shah", goals: "Weight loss phase", restrictions: "None", phone: "555-103-4002", email: "priya.shah@example.com", age: 29, birthday: "1996-09-02", createdAt: "2025-12-15" },
   { firstName: "Mateo", lastName: "Rivera", goals: "Mobility and recovery", restrictions: "Low back sensitivity", phone: "555-222-6005", email: "mateo.rivera@example.com", age: 37, birthday: "1988-04-26", createdAt: "2026-02-01" },
   { firstName: "Sophia", lastName: "Lee", goals: "Endurance progression", restrictions: "No overhead pressing", phone: "555-002-9012", email: "sophia.lee@example.com", age: 33, birthday: "1992-07-29", createdAt: "2025-11-05" },
-
-const defaultProfiles = [
-  { firstName: "Alex", lastName: "Johnson", goals: "Strength cycle week 6", phone: "555-100-2244", email: "alex.johnson@example.com", age: 31, birthday: "1994-03-18", createdAt: "2026-01-08" },
-  { firstName: "Priya", lastName: "Shah", goals: "Weight loss phase", phone: "555-103-4002", email: "priya.shah@example.com", age: 29, birthday: "1996-09-02", createdAt: "2025-12-15" },
-  { firstName: "Mateo", lastName: "Rivera", goals: "Mobility and recovery", phone: "555-222-6005", email: "mateo.rivera@example.com", age: 37, birthday: "1988-04-26", createdAt: "2026-02-01" },
-  { firstName: "Sophia", lastName: "Lee", goals: "Endurance progression", phone: "555-002-9012", email: "sophia.lee@example.com", age: 33, birthday: "1992-07-29", createdAt: "2025-11-05" },
 ];
 
 const equipmentExercises = {
@@ -91,21 +85,6 @@ function clearSession() {
 function getSession() {
   return loadJson(SESSION_KEY, null);
 }
-function loadProfiles() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    try {
-      return JSON.parse(stored);
-    } catch (_error) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultProfiles));
-      return defaultProfiles;
-    }
-  }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultProfiles));
-  return defaultProfiles;
-}
-
-function saveProfiles(profiles) { localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles)); }
 
 function daysTraining(createdAt) {
   return Math.max(1, Math.floor((Date.now() - new Date(createdAt).getTime()) / (1000 * 60 * 60 * 24)));
@@ -131,9 +110,6 @@ function initLogout() {
     clearSession();
     window.location.href = "index.html";
   });
-}
-
-  return new Date(dateString).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
 }
 
 function renderProfiles() {
@@ -167,12 +143,6 @@ function renderProfiles() {
     item.append(link);
     list.append(item);
   });
-  for (const profile of loadProfiles()) {
-    const item = document.createElement("li");
-    item.className = "user-item";
-    item.innerHTML = `<div><h3>${profile.firstName} ${profile.lastName}</h3><p>${profile.goals}</p><p class="profile-meta">Training since ${formatDate(profile.createdAt)} • ${daysTraining(profile.createdAt)} days</p></div><span class="status">Active</span>`;
-    list.append(item);
-  }
 
   const flash = document.getElementById("flash-message");
   if (flash && new URLSearchParams(window.location.search).get("created") === "1") {
@@ -276,10 +246,6 @@ function attachFormHandler() {
       birthday: String(formData.get("birthday") || "").trim(),
       goals: String(formData.get("goals") || "").trim(),
       restrictions: String(formData.get("restrictions") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      age: Number(formData.get("age")),
-      birthday: String(formData.get("birthday") || "").trim(),
-      goals: String(formData.get("goals") || "").trim(),
       createdAt: new Date().toISOString().slice(0, 10),
     });
     saveProfiles(profiles);
@@ -432,18 +398,6 @@ function fillExerciseOptions(row) {
       '<option value="" selected disabled>Select exercise</option>',
       ...selected.map((item) => `<option value="${item}">${item}</option>`),
     ].join("");
-function fillExerciseOptions(row) {
-  const equipment = row.querySelector(".equipment-select");
-  const exercise = row.querySelector(".exercise-select");
-  if (!equipment || !exercise) return;
-
-  equipment.innerHTML = Object.keys(equipmentExercises)
-    .map((name) => `<option value="${name}">${name}</option>`)
-    .join("");
-
-  const refreshExercises = () => {
-    const selected = equipmentExercises[equipment.value] || [];
-    exercise.innerHTML = selected.map((item) => `<option value="${item}">${item}</option>`).join("");
   };
 
   equipment.addEventListener("change", () => {
@@ -457,9 +411,6 @@ function fillExerciseOptions(row) {
       setStep(row, "metrics");
     }
   });
-  exercise.addEventListener("change", () => setStep(row, "metrics"));
-
-  refreshExercises();
 }
 
 function addWorkoutRow(type) {
@@ -514,8 +465,6 @@ function initAssignmentSelector() {
 
   mode.addEventListener("change", updateMode);
   updateMode();
-    remove.addEventListener("click", () => row.remove());
-  }
 }
 
 function validateWorkoutForm(form) {
@@ -537,14 +486,6 @@ function validateWorkoutForm(form) {
       reps?.setCustomValidity("Enter reps or time.");
       reps?.reportValidity();
       return false;
-    if (type === "exercise") {
-      reps?.setCustomValidity("");
-      time?.setCustomValidity("");
-      if (!reps?.value && !time?.value) {
-        reps?.setCustomValidity("Enter reps or time.");
-        reps?.reportValidity();
-        return false;
-      }
     }
 
     if (type === "rest" && !time?.value) {
@@ -566,8 +507,6 @@ function initWorkoutBuilder() {
   document.getElementById("add-exercise")?.addEventListener("click", () => addWorkoutRow("exercise"));
   document.getElementById("add-rest")?.addEventListener("click", () => addWorkoutRow("rest"));
   document.getElementById("empty-add-exercise")?.addEventListener("click", () => addWorkoutRow("exercise"));
-  document.getElementById("add-exercise")?.addEventListener("click", () => addWorkoutRow("exercise"));
-  document.getElementById("add-rest")?.addEventListener("click", () => addWorkoutRow("rest"));
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -596,10 +535,4 @@ attachFormHandler();
 initAuth();
 initSignup();
 renderUserDashboard();
-    if (message) message.hidden = false;
-  });
-}
-
-renderProfiles();
-attachFormHandler();
 initWorkoutBuilder();

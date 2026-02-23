@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App | User Signup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell auth-shell">
+      <header class="hero card">
+        <h1>User Signup</h1>
+        <p id="signup-subtitle">Create your login to view your profile.</p>
+      </header>
+
+      <section class="card" id="signup-card">
+        <form id="signup-form" class="profile-form" novalidate>
+          <label>Email *
+            <input name="email" type="email" required aria-required="true" />
+          </label>
+          <label>Create Password *
+            <input name="password" type="password" minlength="6" required aria-required="true" />
+          </label>
+          <button class="btn btn-primary" type="submit">Create Account</button>
+        </form>
+        <p class="inline-alert" id="signup-message" aria-live="polite" hidden></p>
+      </section>
+
+      <a class="btn btn-ghost" href="index.html">Back to Login</a>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
